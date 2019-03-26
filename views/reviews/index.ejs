@@ -1,0 +1,68 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="text-align: center">Review Page: <%= stadium.name %></h1>
+            <a href="/stadiums/<%= stadium._id %>">Go back to the stadium page</a>
+            <div class="thumbnail">
+                <div class="caption-full">
+                    <% if (stadium.rating === 0) { %>
+                    <h5>
+                        <em>No reviews yet.</em>
+                    </h5>
+                    <% } else { %>
+                    <p>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star <% if (stadium.rating > 1.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (stadium.rating > 2.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (stadium.rating > 3.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (stadium.rating > 4.5) { %> checked <% } %>"></span>
+                        <em>(total reviews: <%= stadium.reviews.length %>)</em>
+                    </p>
+                    <p>
+                        Current stadium rating: <strong><%= stadium.rating.toFixed(2) %></strong>
+                    </p>
+                    <p><h4>All reviews for this stadium:</h4></p>
+                    <hr style="margin-top: 0;">
+                    <% stadium.reviews.forEach(function(review){ %>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %><%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
+                            <div>Review by: <strong><%= review.author.username %></strong></div>
+                            <span><em><%= review.updatedAt.toDateString() %></em></span>
+                            <% if(currentUser && review.author.id.equals(currentUser._id)){ %>
+                            <div>
+                                    <a class="btn btn-sm btn-outline-warning"
+                                        href="/stadiums/<%=stadium._id %>/reviews/<%=review._id %>/edit"><i class="fas fa-edit"></i></a>
+                                    <form class="delete-form" action="/stadiums/<%=stadium._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
+                                        <button  class = " btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                                    </form>
+                                </div>
+                            <% } %>
+                        </div>
+                        <div class="col-md-9">
+                            <p style="text-align: justify; word-wrap: break-word;">
+                                <%= review.text %>
+                            </p>
+                            
+                        </div>
+                    </div>
+                    <hr>
+                    <% }); %>
+                    <% } %>
+                    <div>
+                        <a class="btn btn-primary <% if (currentUser && stadium.reviews.some(function (review) {return review.author.id.equals(currentUser._id)})) { %> disabled <% } %>" href="/stadiums/<%= stadium._id %>/reviews/new">
+                            Write a New Review</a>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <a class="btn btn-default" href="/stadiums/<%= stadium._id %>"><i class="fa fa-arrow-left"></i> Go back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Review section-->
+</div>
+
+<% include ../partials/footer %>

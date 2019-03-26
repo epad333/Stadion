@@ -1,0 +1,62 @@
+<% include ../partials/header %>
+
+
+<div class = "container">
+    
+      
+
+        
+        
+        
+        
+       
+    <h1 style= "text-align: center">Create a New Stadium</h1>
+       <div style = "width:40%; margin: 25px auto">
+        <form action="/stadiums" method= "POST" enctype="multipart/form-data">
+            
+                
+                <div class = "form-group">
+                    <input class= "form-control" type = "text" name= "name" placeholder = "name">
+                </div>
+                <div class = "form-group">
+                    <input class = "form-control" type= "number" name ="price" placeholder= "price" min= "0.01" step= "0.01">
+                    
+                </div>
+               <div class="form-group">
+                    <label for="image">Image</label><br>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+                </div>
+                <div class = "form-group">
+                    <textarea class="form-control" type="text" name="description" placeholder="Write a description for this stadium" rows="5"></textarea>
+                    
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input class="form-control" type="text" name="location" id="location" placeholder="Chicago, IL">
+                </div>
+               
+                
+            
+            
+            <div class = "form-group">
+            <button class = "btn btn-lg btn-outline-primary btn-block">Submit</button>
+            </div>
+            
+             <a href = "/stadiums">View all Stadiums</a>
+          </form>
+         </div>   
+            
+        
+        
+       
+       
+        
+  
+</div>
+
+
+
+
+<% include ../partials/footer %>
+

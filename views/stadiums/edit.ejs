@@ -1,0 +1,57 @@
+<% include ../partials/header%>
+
+
+
+<div class = "container">
+    
+
+      
+
+
+        
+        
+        
+        
+       
+    <h1 style= "text-align: center">Edit <%= stadium.name%></h1>
+       <div style = "width:40%; margin: 25px auto">
+        <form action="/stadiums/<%=stadium._id%>?_method=PUT" method= "POST">
+            
+                
+                <div class = "form-group">
+                    <input class= "form-control" type = "text" name= "stadium[name]" value = "<%=stadium.name  %>">
+                </div>
+                <div class = "form-group">
+                    <input class = "form-control" type= "number" name ="stadium[price]" value= "<%=stadium.price%>" min= "0.01" step= "0.01">
+                    
+                </div>
+
+                <div class = "form-group">
+                     <textarea class="form-control" type="text" name="stadium[description]" placeholder="Write a description for this stadium..." rows="5"><%= stadium.description %></textarea>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input class="form-control" type="text" name="location" id="location" value="<%= stadium.location %>">
+                </div>
+                
+                
+            
+            
+            <div class = "form-group">
+            <button class = "btn btn-lg btn-outline-primary btn-block">Submit</button>
+            </div>
+            
+             <a href = "/stadiums">View all Stadiums</a>
+          </form>
+         </div>   
+            
+        
+        
+       
+       
+        
+  
+</div>
+
+<% include ../partials/footer %>

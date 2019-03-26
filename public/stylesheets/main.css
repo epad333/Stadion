@@ -1,0 +1,85 @@
+.img-thumbnail{
+    padding: 0;
+    border-radius: 10px;
+    
+}
+
+.stadium-image{
+    border-radius: 10px;
+}
+
+.img-thumbnail .caption-full{
+    padding: 9px;
+}
+
+.delete-form{
+    display:inline;
+    
+}
+
+.comment-delete-form{
+    display:inline;
+    
+}
+ .nav-item{
+    text-align: right;
+}
+
+body{
+    background-color: #b9c2ce;
+}
+
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+#thumbnail img {
+    height:200px;
+    width:100%;
+}
+
+#show-pic{
+    width:auto;
+    height: auto;
+}
+
+.checked {
+    color: orange;
+}
+
+.new-stadium{
+    background-color: #58a3ce;
+    color: white;
+}
+.icon {
+    color:#58a3ce ;
+}
+
+.review-btn{
+        background-color: #58a3ce;
+    color: white;
+}
+
+.more-info{
+            background-color: #58a3ce;
+    color: white;
+}
+
+
+.not-found{
+    background-color: #100847;
+    
+}
+.nf-card{
+    background-color: white;
+    width: 75%;
+    margin: auto;
+    border-radius: 8px;
+    max-width: 400px;
+    padding: 20px;
+    flex-direction: column;
+    margin-top: 30vh;
+}
+
